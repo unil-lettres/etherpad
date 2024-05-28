@@ -37,8 +37,10 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
+          file: ./Dockerfile
           target: production
           build-args: |
+            ETHERPAD_PLUGINS="ep_comments_page ep_author_neat"
             INSTALL_ABIWORD=true
           platforms: linux/amd64,linux/arm64
           push: true
