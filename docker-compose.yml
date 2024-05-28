@@ -1,0 +1,42 @@
+networks:
+  etherpad-net:
+    driver: bridge
+
+services:
+  etherpad-app:
+    image: unillett/etherpad:latest
+    build:
+      context: ./etherpad-lite
+      dockerfile: Dockerfile
+      args:
+        ETHERPAD_PLUGINS: "ep_headings2"
+        INSTALL_ABIWORD: true
+    volumes:
+      - plugins-data:/opt/etherpad-lite/src/plugin_packages
+      - var-data:/opt/etherpad-lite/var
+    depends_on:
+      - etherpad-mysql
+    env_file:
+      - ./.env
+    ports:
+      - "127.0.0.1:9001:9001"
+    networks:
+      - etherpad-net
+    container_name: etherpad-app
+
+  etherpad-mysql:
+    image: mariadb:10.6
+    env_file:
+      - ./.env
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - "127.0.0.1:3304:3306"
+    networks:
+      - etherpad-net
+    container_name: etherpad-mysql
+
+volumes:
+  mysql-data:
+  plugins-data:
+  var-data:
