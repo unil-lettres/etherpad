@@ -7,7 +7,7 @@ on:
 env:
   ETHERPAD_REPOSITORY: ether/etherpad-lite
   ETHERPAD_TAG: 2.0.3
-  DOCKERHUB_REPOSITORY: unillett/etherpad
+  DOCKERHUB_REPOSITORY: xxx/xxx
 
 jobs:
   docker:
@@ -40,7 +40,7 @@ jobs:
           file: ./Dockerfile
           target: production
           build-args: |
-            ETHERPAD_PLUGINS="ep_comments_page ep_author_neat"
+            ETHERPAD_PLUGINS=ep_headings2
             INSTALL_ABIWORD=true
           platforms: linux/amd64,linux/arm64
           push: true
