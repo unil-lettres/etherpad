@@ -14,7 +14,13 @@ Please make sure to copy & rename the **example.env** file to **.env**.
 
 ``cp example.env .env``
 
-You can replace the values if needed, but the default ones should work.
+You can replace the values if needed, but the default ones should work for local development.
+
+Please also make sure to copy & rename the **docker-compose.override.yml.dev** file to **docker-compose.override.yml**.
+
+`cp docker-compose.override.yml.dev docker-compose.override.yml`
+
+You can replace the values if needed, but the default ones should work for local development.
 
 ### Build & run
 
@@ -46,7 +52,7 @@ Please also make sure to copy & rename the **docker-compose.override.yml.prod** 
 
 `cp docker-compose.override.yml.prod docker-compose.override.yml`
 
-You can replace the values if needed, but the default ones should work for production.
+You can replace the values if needed, but the default ones should work for production. You can do the same with the `docker-compose.override.yml.stage` file if your environment is staging.
 
 Build & run all the containers for this project:
 
@@ -56,7 +62,7 @@ Use a reverse proxy configuration to map the url to port `9001`.
 
 # Application updates
 
-The application uses a custom build of the Etherpad docker image. We use a [GitHub Actions workflow](https://github.com/unil-lettres/etherpad/blob/main/.github/workflows/docker.yml) to build the custom image and push it to our [Docker Hub repository](https://hub.docker.com/repository/docker/unillett/etherpad/general).
+This application uses a custom build of the Etherpad docker image. We trigger a [GitHub Actions workflow](https://github.com/unil-lettres/etherpad/blob/main/.github/workflows/docker.yml) to build the custom image and push it to our [Docker Hub repository](https://hub.docker.com/repository/docker/unillett/etherpad/general).
 
 When a new [Etherpad version](https://github.com/ether/etherpad-lite/tags) is available, you should update the ETHERPAD_TAG value in the [GitHub Actions workflow](https://github.com/unil-lettres/etherpad/blob/main/.github/workflows/docker.yml) to reference the new tag. When the change is pushed to the repository, the workflow will automatically build the new image and push it to Docker Hub.
 

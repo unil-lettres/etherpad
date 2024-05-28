@@ -4,7 +4,6 @@ networks:
 
 services:
   etherpad-app:
-    image: unillett/etherpad:latest
     volumes:
       - plugins-data:/opt/etherpad-lite/src/plugin_packages
       - var-data:/opt/etherpad-lite/var

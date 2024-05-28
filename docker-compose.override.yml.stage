@@ -4,7 +4,7 @@
 
 services:
   etherpad-app:
-    image: unillett/etherpad:latest
+    image: unillett/etherpad:latest-dev
     restart: unless-stopped
     deploy:
       mode: global
