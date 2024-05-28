@@ -9,7 +9,8 @@ services:
       - plugins-data:/opt/etherpad-lite/src/plugin_packages
       - var-data:/opt/etherpad-lite/var
     depends_on:
-      - etherpad-mysql
+      etherpad-mysql:
+        condition: service_healthy
     env_file:
       - ./.env
     ports:
@@ -26,6 +27,11 @@ services:
       - mysql-data:/var/lib/mysql
     ports:
       - "127.0.0.1:3304:3306"
+    healthcheck:
+      # The container is not considered healthy until the DB_NAME database is available
+      test: [ "CMD-SHELL", "mysql ${DB_NAME} -u${DB_USER} -p${DB_PASS} -e 'SELECT 1;'  || exit 1" ]
+      interval: 2s
+      retries: 3
     networks:
       - etherpad-net
     container_name: etherpad-mysql

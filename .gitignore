@@ -1,12 +1,11 @@
-# iDig server data
-etherpad-lite
-
-# IDE stuff
+# Ignore IDE stuff
 .idea
 
 # Ignore configuration files
 docker-compose.override.yml
 
-# Other
+# Ignore environment variables
 .env
+
+# Other
 .DS_Store
