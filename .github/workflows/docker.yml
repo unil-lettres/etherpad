@@ -5,7 +5,7 @@ on:
       - "development"
       - "main"
 env:
-  ETHERPAD_REPOSITORY: https://github.com/ether/etherpad-lite.git
+  ETHERPAD_REPOSITORY: ether/etherpad-lite
   ETHERPAD_TAG: 2.0.3
   DOCKERHUB_REPOSITORY: unillett/etherpad
 
