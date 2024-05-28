@@ -36,8 +36,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: ./
-          file: Dockerfile
+          context: .
+          target: production
           build-args: |
             ETHERPAD_PLUGINS="ep_headings2"
             INSTALL_ABIWORD=true
