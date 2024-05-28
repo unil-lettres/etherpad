@@ -7,7 +7,7 @@ on:
 env:
   ETHERPAD_REPOSITORY: ether/etherpad-lite
   ETHERPAD_TAG: 2.0.3
-  DOCKERHUB_REPOSITORY: xxx/xxx
+  DOCKERHUB_REPOSITORY: unillett/etherpad
 
 jobs:
   docker:
@@ -36,7 +36,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./
           file: ./Dockerfile
           target: production
           build-args: |

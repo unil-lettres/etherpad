@@ -5,12 +5,6 @@ networks:
 services:
   etherpad-app:
     image: unillett/etherpad:latest
-    build:
-      context: ./etherpad-lite
-      dockerfile: Dockerfile
-      args:
-        ETHERPAD_PLUGINS: "ep_headings2"
-        INSTALL_ABIWORD: true
     volumes:
       - plugins-data:/opt/etherpad-lite/src/plugin_packages
       - var-data:/opt/etherpad-lite/var
