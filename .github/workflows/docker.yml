@@ -19,6 +19,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ${{ env.ETHERPAD_REPOSITORY }}
+          ref: ${{ env.ETHERPAD_TAG }}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -38,7 +39,6 @@ jobs:
           context: .
           target: production
           build-args: |
-            ETHERPAD_PLUGINS="ep_headings2"
             INSTALL_ABIWORD=true
           platforms: linux/amd64,linux/arm64
           push: true
