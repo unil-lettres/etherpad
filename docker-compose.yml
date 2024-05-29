@@ -29,7 +29,7 @@ services:
       # The container is not considered healthy until the DB_NAME database is available
       test: [ "CMD-SHELL", "mysql ${DB_NAME} -u${DB_USER} -p${DB_PASS} -e 'SELECT 1;'  || exit 1" ]
       interval: 2s
-      retries: 3
+      retries: 5
     networks:
       - etherpad-net
     container_name: etherpad-mysql
