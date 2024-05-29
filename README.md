@@ -58,7 +58,7 @@ Build & run all the containers for this project:
 
 `docker-compose up -d`
 
-Use a reverse proxy configuration to map the url to port `9001`.
+Use a reverse proxy configuration to map the url to port `9001`. Examples can be found in the [wiki of the project](https://github.com/ether/etherpad-lite/wiki/How-to-put-Etherpad-Lite-behind-a-reverse-Proxy).
 
 # Application updates
 
