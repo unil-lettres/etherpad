@@ -1,6 +1,6 @@
 # Introduction
 
-Docker configuration for the Etherpad application.
+Docker configuration for the [Etherpad](https://github.com/ether/etherpad-lite) application.
 
 # Development with Docker
 
