@@ -41,7 +41,7 @@ jobs:
           target: production
           build-args: |
             ETHERPAD_PLUGINS=ep_headings2
-            INSTALL_ABIWORD=true
+            INSTALL_SOFFICE=true
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ env.DOCKERHUB_REPOSITORY }}:${{ github.ref == 'refs/heads/main' && 'latest' || 'latest-dev' }}
