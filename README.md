@@ -8,7 +8,7 @@ Docker configuration for the [Etherpad](https://github.com/ether/etherpad-lite) 
 
 A working [Docker](https://docs.docker.com/engine/install/) installation is mandatory.
 
-### Docker environment file
+## Docker environment file
 
 Please make sure to copy & rename the **example.env** file to **.env**.
 
@@ -22,13 +22,13 @@ Please also make sure to copy & rename the **docker-compose.override.yml.dev** f
 
 You can replace the values if needed, but the default ones should work for local development.
 
-### Build & run
+## Build & run
 
 Build & run all the containers for this project.
 
 ``docker-compose up`` (add -d if you want to run in the background and silence the logs)
 
-### Frontends
+## Frontends
 
 To access the main application please use the following link.
 
