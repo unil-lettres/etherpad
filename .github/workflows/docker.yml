@@ -6,7 +6,7 @@ on:
       - "main"
 env:
   ETHERPAD_REPOSITORY: ether/etherpad-lite
-  ETHERPAD_TAG: 2.2.2
+  ETHERPAD_TAG: 2.2.3
   DOCKERHUB_REPOSITORY: unillett/etherpad
 
 jobs:
