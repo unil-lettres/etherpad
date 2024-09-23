@@ -4,4 +4,4 @@
 
 services:
   etherpad-app:
-    image: unillett/etherpad:latest-dev
+    image: unillett/etherpad:latest-stage

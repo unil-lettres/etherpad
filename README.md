@@ -66,4 +66,4 @@ This application uses a custom build of the Etherpad docker image. We trigger a 
 
 When a new [Etherpad version](https://github.com/ether/etherpad-lite/tags) is available, you should update the ETHERPAD_TAG value in the [GitHub Actions workflow](https://github.com/unil-lettres/etherpad/blob/main/.github/workflows/docker.yml) to reference the new tag. When the change is pushed to the repository, the workflow will automatically build the new image and push it to [Docker Hub](https://hub.docker.com/repository/docker/unillett/etherpad/general).
 
-Changes in the `development` branch will create a new image tagged with `latest-dev`, while changes in the `main` branch will create a new image tagged with `latest` & a new image tagged with the ETHERPAD_TAG version number.
+Changes in the `development` branch will create a new image tagged with `latest-stage`, while changes in the `main` branch will create a new image tagged with `latest` & a new image tagged with the ETHERPAD_TAG version number.
