@@ -18,7 +18,7 @@ services:
       - etherpad-net
     container_name: etherpad-app
   etherpad-mysql:
-    image: mariadb:10.6
+    image: mariadb:11.4
     env_file:
       - ./.env
     volumes:
@@ -26,10 +26,11 @@ services:
     ports:
       - "127.0.0.1:3304:3306"
     healthcheck:
-      # The container is not considered healthy until the DB_NAME database is available
-      test: [ "CMD-SHELL", "mysql ${DB_NAME} -u${DB_USER} -p${DB_PASS} -e 'SELECT 1;'  || exit 1" ]
-      interval: 2s
-      retries: 5
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s 
     networks:
       - etherpad-net
     container_name: etherpad-mysql
