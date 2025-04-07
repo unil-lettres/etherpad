@@ -7,7 +7,7 @@ on:
 
 env:
   ETHERPAD_REPOSITORY: ether/etherpad-lite
-  ETHERPAD_TAG: 2.2.7
+  ETHERPAD_TAG: 2.3.0
 
 jobs:
   build:
