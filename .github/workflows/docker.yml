@@ -7,7 +7,7 @@ on:
 permissions: read-all
 env:
   ETHERPAD_REPOSITORY: ether/etherpad-lite
-  ETHERPAD_TAG: 2.4.2
+  ETHERPAD_TAG: 2.5.0
 
 jobs:
   build:
