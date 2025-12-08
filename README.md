@@ -26,7 +26,7 @@ You can replace the values if needed, but the default ones should work for local
 
 Build & run all the containers for this project.
 
-``docker-compose up`` (add -d if you want to run in the background and silence the logs)
+``docker compose up`` (add -d if you want to run in the background and silence the logs)
 
 ## Frontends
 
@@ -56,7 +56,7 @@ You can replace the values if needed, but the default ones should work for produ
 
 Build & run all the containers for this project:
 
-`docker-compose up -d`
+`docker compose up -d`
 
 Use a reverse proxy configuration to map the url to port `9001`. Examples can be found in the [wiki of the project](https://github.com/ether/etherpad-lite/wiki/How-to-put-Etherpad-Lite-behind-a-reverse-Proxy).
 
