@@ -3,7 +3,7 @@
 # file to deploy the application.
 
 services:
-  shibboleth-proxy:
+  etherpad-shibboleth-proxy:
     image: unillett/apache-shibboleth:latest
     env_file:
       - ./.env
@@ -16,7 +16,7 @@ services:
       - etherpad-app
     networks:
       - etherpad-net
-    container_name: shibboleth-proxy
+    container_name: etherpad-shibboleth-proxy
     restart: unless-stopped
   etherpad-app:
     image: unillett/etherpad:latest
