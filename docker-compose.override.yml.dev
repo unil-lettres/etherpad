@@ -5,3 +5,5 @@
 services:
   etherpad-app:
     image: unillett/etherpad:latest-stage
+    ports:
+      - "127.0.0.1:9001:9001"
