@@ -7,7 +7,6 @@ on:
 permissions: read-all
 env:
   ETHERPAD_REPOSITORY: ether/etherpad-lite
-  ETHERPAD_TAG: 2.6.1
 
 jobs:
   build:
@@ -22,7 +21,14 @@ jobs:
             arch: linux/arm64
 
     steps:
-      - name: Checkout
+      - name: Checkout and read version
+        uses: actions/checkout@v5
+
+      - name: Set Etherpad version
+        run: |
+          echo "ETHERPAD_TAG=$(cat VERSION)" >> $GITHUB_ENV
+
+      - name: Checkout Etherpad
         uses: actions/checkout@v5
         with:
           repository: ${{ env.ETHERPAD_REPOSITORY }}
@@ -83,6 +89,13 @@ jobs:
     needs: [build]
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Read version
+        run: |
+          echo "ETHERPAD_TAG=$(cat VERSION)" >> $GITHUB_ENV
+
       - name: Download digests
         uses: actions/download-artifact@v4
         with:
