@@ -12,8 +12,6 @@ services:
         condition: service_healthy
     env_file:
       - ./.env
-    ports:
-      - "127.0.0.1:9001:9001"
     networks:
       - etherpad-net
     container_name: etherpad-app

@@ -3,6 +3,21 @@
 # file to deploy the application.
 
 services:
+  etherpad-shibboleth-proxy:
+    image: unillett/apache-shibboleth:latest
+    env_file:
+      - ./.env
+    volumes:
+      - shibboleth-certs:/var/lib/shibboleth
+      - ./apache-shibboleth.conf:/etc/apache2/vhost.d/etherpad.conf:ro
+    ports:
+      - "127.0.0.1:9001:80"
+    depends_on:
+      - etherpad-app
+    networks:
+      - etherpad-net
+    container_name: etherpad-shibboleth-proxy
+    restart: unless-stopped
   etherpad-app:
     image: unillett/etherpad:latest
     restart: unless-stopped
@@ -18,3 +33,6 @@ services:
       resources:
         limits:
           memory: 500M
+
+volumes:
+  shibboleth-certs:

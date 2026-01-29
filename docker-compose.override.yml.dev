@@ -4,4 +4,6 @@
 
 services:
   etherpad-app:
-    image: unillett/etherpad:latest-stage
+    image: unillett/etherpad:stage-latest
+    ports:
+      - "127.0.0.1:9001:9001"
