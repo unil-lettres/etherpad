@@ -19,7 +19,7 @@ services:
     container_name: etherpad-shibboleth-proxy
     restart: unless-stopped
   etherpad-app:
-    image: unillett/etherpad:latest-stage
+    image: unillett/etherpad:stage-latest
     restart: unless-stopped
     deploy:
       mode: global

@@ -106,7 +106,7 @@ jobs:
           images: |
             ${{ vars.DOCKERHUB_REPOSITORY }}
           tags: |
-            type=raw,value=latest-stage,enable=${{ github.ref == 'refs/heads/development' }}
+            type=raw,value=stage-latest,enable=${{ github.ref == 'refs/heads/development' }}
             type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
             type=raw,value=${{ env.ETHERPAD_TAG }},enable=${{ github.ref == 'refs/heads/main' }}
 
