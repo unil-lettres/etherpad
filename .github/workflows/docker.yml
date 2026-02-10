@@ -26,7 +26,9 @@ jobs:
 
       - name: Set Etherpad version
         run: |
-          echo "ETHERPAD_TAG=$(cat VERSION)" >> $GITHUB_ENV
+          FULL_VERSION=$(cat VERSION)
+          ETHERPAD_TAG="${FULL_VERSION%%-rev*}"
+          echo "ETHERPAD_TAG=$ETHERPAD_TAG" >> $GITHUB_ENV
 
       - name: Checkout Etherpad
         uses: actions/checkout@v5
