@@ -8,7 +8,6 @@ services:
     env_file:
       - ./.env
     volumes:
-      - shibboleth-certs:/var/lib/shibboleth
       - ./apache-shibboleth.conf:/etc/apache2/vhost.d/etherpad.conf:ro
     ports:
       - "127.0.0.1:9001:8080"
@@ -33,6 +32,3 @@ services:
       resources:
         limits:
           memory: 500M
-
-volumes:
-  shibboleth-certs:
