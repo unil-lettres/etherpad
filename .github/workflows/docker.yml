@@ -67,6 +67,8 @@ jobs:
           build-args: |
             ETHERPAD_PLUGINS=ep_headings2
             INSTALL_SOFFICE=true
+          provenance: true
+          sbom: true
           platforms: ${{ matrix.arch }}
           labels: ${{ steps.meta.outputs.labels }}
           outputs: type=image,"name=${{ vars.DOCKERHUB_REPOSITORY }}",push-by-digest=true,name-canonical=true,push=true
