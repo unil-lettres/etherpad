@@ -17,6 +17,11 @@ services:
       - etherpad-net
     container_name: etherpad-shibboleth-proxy
     restart: unless-stopped
+    deploy:
+      mode: global
+      resources:
+        limits:
+          memory: 500M
   etherpad-app:
     image: unillett/etherpad:latest
     restart: unless-stopped
