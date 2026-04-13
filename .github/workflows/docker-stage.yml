@@ -6,7 +6,6 @@ on:
   push:
     branches:
       - "development"
-      - "refactor-for-k8s"
 permissions: read-all
 env:
   ETHERPAD_REPOSITORY: ether/etherpad-lite
@@ -25,7 +24,7 @@ jobs:
       - name: Checkout and read version
         uses: actions/checkout@v5
         with:
-          ref: refactor-for-k8s
+          ref: development
           path: source
 
       - name: Set Etherpad version
@@ -73,7 +72,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
         with:
-          ref: refactor-for-k8s
+          ref: development
 
       - name: Merge service
         id: merge
@@ -92,7 +91,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
         with:
-          ref: refactor-for-k8s
+          ref: development
 
       - name: Update image
         uses: unil-lettres/actions/commit-version@main
@@ -115,7 +114,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
         with:
-          ref: refactor-for-k8s
+          ref: development
 
       - name: Update description
         uses: peter-evans/dockerhub-description@v5
