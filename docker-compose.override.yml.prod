@@ -8,7 +8,7 @@ services:
     env_file:
       - ./.env
     volumes:
-      - ./apache-shibboleth.conf:/etc/apache2/vhost.d/etherpad.conf:ro
+      - ./config/apache-shibboleth.conf:/etc/apache2/vhost.d/etherpad.conf:ro
     ports:
       - "127.0.0.1:9001:8080"
     depends_on:

@@ -66,6 +66,21 @@ This application uses a custom build of the Etherpad docker image. We trigger a 
 
 When a new [Etherpad version](https://github.com/ether/etherpad-lite/tags) is available, you should update the value in the [VERSION](https://github.com/unil-lettres/etherpad/blob/main/VERSION) file to reference the new tag. When the change is pushed to the repository, the workflow will automatically build the new image and push it to [Docker Hub](https://hub.docker.com/repository/docker/unillett/etherpad/general).
 
-Changes in the `development` branch will create a new image tagged with `stage-latest`, while changes in the `main` branch will create a new image tagged with `latest` and a new image tagged with the version number from the VERSION file.
-
 If you need to trigger a rebuild or mark a custom image version, you can add a revision suffix (such as `-rev1`) to the value in the `VERSION` file. This suffix will be ignored when fetching the Etherpad source code, but it allows you to distinguish builds in your workflow and Docker image tags.
+
+# Docker images
+
+GitHub Actions workflows generate Docker image tags based on these events:
+- Push to `development`: `stage-latest`, `stage-<sha>-<timestamp>` (immutable)
+- Push to `main`: `latest`
+- Push a git tag: `vX.Y.Z` (immutable, from VERSION)
+
+Weekly cron jobs:
+- Create an updated staging image: `stage-<sha>-<timestamp>` (immutable)
+- Create an updated production candidate: `vX.Y.Z-<sha>-<timestamp>` (immutable, from VERSION)
+
+All the immutable tags are committed to the [k8s](https://github.com/unil-lettres/k8s) repository.
+
+# Helm
+
+The Helm charts for this project are available at [https://github.com/unil-lettres/k8s](https://github.com/unil-lettres/k8s), in the ``palett`` directory.
