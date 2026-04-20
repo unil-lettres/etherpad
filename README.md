@@ -84,3 +84,5 @@ All the immutable tags are committed to the [k8s](https://github.com/unil-lettre
 # Helm
 
 The Helm charts for this project are available at [https://github.com/unil-lettres/k8s](https://github.com/unil-lettres/k8s), in the ``palett`` directory.
+
+> The plugins built with the custom image won't be automatically installed on Kubernetes. Since the k8s mounted volumes are replacing the ones in the image (`/opt/etherpad-lite/src/plugin_packages`), you'll need to install the plugins manually in the `/admin` interface of the application.
