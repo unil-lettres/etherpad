@@ -96,7 +96,7 @@ jobs:
       - name: Find apache-shibboleth latest DockerHub tag
         id: find_shib_tag
         continue-on-error: true
-        uses: unil-lettres/actions/latest-tag@development
+        uses: unil-lettres/actions/latest-tag@main
         with:
           image_repository: ${{ vars.DOCKERHUB_SHIB_REPOSITORY }}
           dockerhub_username: ${{ secrets.DOCKERHUB_USERNAME }}
