@@ -12,18 +12,19 @@ fi
 echo "Notifying Bugsnag of deployment: $BUGSNAG_APP_VERSION to $BUGSNAG_ENV"
 
 # Notify BugSnag about the deployment
-if curl -X POST https://build.bugsnag.com/ \
-  --retry 2 \
-  --fail \
-  --silent \
-  --show-error \
-  -H "Content-Type: application/json" \
-  -d '{
+PAYLOAD='{
     "apiKey": "'"$BUGSNAG_API_KEY"'",
     "appVersion": "'"$BUGSNAG_APP_VERSION"'",
     "releaseStage": "'"$BUGSNAG_ENV"'",
     "builderName": "Deployer"
-  }'; then
+  }'
+
+# We use wget instead of curl since the library is no longer included in the etherpad image
+if wget -q -O - \
+  --tries=3 \
+  --header="Content-Type: application/json" \
+  --post-data="$PAYLOAD" \
+  https://build.bugsnag.com/; then
   echo "Successfully notified Bugsnag"
   exit 0
 else
