@@ -48,6 +48,8 @@ jobs:
 
       - name: Build image
         uses: unil-lettres/actions/docker-build@main
+        env:
+          BUILDKIT_PROGRESS: plain
         with:
           context: ./etherpad-lite
           dockerfile: ./etherpad-lite/Dockerfile
