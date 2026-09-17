@@ -18,6 +18,7 @@ jobs:
       matrix:
         include:
           - { arch: linux/amd64, os: ubuntu-latest }
+          - { arch: linux/arm64, os: ubuntu-26.04-arm }
 
     steps:
       - name: Checkout and read version
