@@ -85,6 +85,7 @@ jobs:
           name_prefix: app
           dockerhub_username: ${{ secrets.DOCKERHUB_USERNAME }}
           dockerhub_token: ${{ secrets.DOCKERHUB_TOKEN }}
+          repository_path: ./source
 
   merge:
     name: Merge
