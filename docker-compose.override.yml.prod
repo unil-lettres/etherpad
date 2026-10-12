@@ -18,7 +18,6 @@ services:
     container_name: etherpad-shibboleth-proxy
     restart: unless-stopped
     deploy:
-      mode: global
       resources:
         limits:
           memory: 500M
@@ -26,14 +25,12 @@ services:
     image: unillett/etherpad:latest
     restart: unless-stopped
     deploy:
-      mode: global
       resources:
         limits:
           memory: 1000M
   etherpad-mysql:
     restart: unless-stopped
     deploy:
-      mode: global
       resources:
         limits:
           memory: 500M
