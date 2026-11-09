@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          ref: main
+          ref: ${{ github.event_name == 'schedule' && 'main' || github.sha }}
 
       - name: Determine jobs execution
         id: determine
@@ -49,7 +49,7 @@ jobs:
       - name: Checkout and read version
         uses: actions/checkout@v7
         with:
-          ref: main
+          ref: ${{ github.event_name == 'schedule' && 'main' || github.sha }}
           path: source
 
       - name: Set Etherpad version
@@ -99,7 +99,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          ref: main
+          ref: ${{ github.event_name == 'schedule' && 'main' || github.sha }}
 
       - name: Read VERSION file
         id: version
@@ -124,7 +124,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          ref: main
+          ref: ${{ github.event_name == 'schedule' && 'main' || github.sha }}
 
       - name: Find apache-shibboleth latest DockerHub tag
         id: find_shib_tag
@@ -166,7 +166,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          ref: main
+          ref: ${{ github.event_name == 'schedule' && 'main' || github.sha }}
 
       - name: Update description
         uses: peter-evans/dockerhub-description@v5
